@@ -1,0 +1,59 @@
+﻿@model Web.ViewModels.HomeViewModel
+
+<br />
+
+<div class="alert alert-info" role="alert">
+    <p><b>Query the block chain</b> allows you to write T-SQL queries against the bitcoin block chain. Some sample queries are provided below.  For full database schema, see the Help page.</p>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Enter your SQL Query</h3>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Bitcoin", "BlockChain"))
+        {
+            @Html.TextAreaFor(model => model.Query, new { rows = "10", cols = "500", @class = "form-control" })
+            <br />
+            <button class="btn btn-primary btn-lg" type="submit">F5</button>
+        }
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Examples</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>SQL</th>
+            </tr>
+            @foreach (var item in Model.Queries)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.SQL</td>
+                </tr>
+            }
+            
+            @*
+            <tr>
+                <td>LAST_BLOCK</td>
+                <td>Find the latest block</td>
+                <td>SELECT Max(timestamp) as LastBlockTime, GETUTCDATE() as ServerTime, DATEDIFF(MI ,Max(timestamp), GETUTCDATE()) as DeltaMinutes FROM Blocks</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Count transactions per year</td>
+                <td>select Sum(transactioncount) as Transactions, DATEPART(yyyy, [timestamp]) as [Year] FROM BlockChain.Blocks GROUP BY DATEPART(yyyy, [timestamp])</td>
+            </tr>*@
+        </table>
+    </div>
+</div>
+
+
+Database Schema or <a href="http://www.w3schools.com/sql/">SQL help</a>

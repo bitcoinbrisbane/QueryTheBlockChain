@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewBag.Title = "Help";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Database Schema</h2>
+
+<p></p>
+
+<img src="~/Images/query-the-block-chain-database-schema.png" />
+
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Bitcoin.Block</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <td>ID (Primary Key)</td>
+                    <td>BigInt</td>
+                </tr>
+                <tr>
+                    <td>Length</td>
+                    <td>BigInt</td>
+                </tr>
+                <tr>
+                    <td>LockTime</td>
+                    <td>BigInt</td>
+                </tr>
+                <tr>
+                    <td>Nonce</td>
+                    <td>BigInt</td>
+                </tr>
+                <tr>
+                    <td>PreviousBlockHash</td>
+                    <td>Binary(32)</td>
+                </tr>
+                <tr>
+                    <td>TimeStamp</td>
+                    <td>DateTime</td>
+                </tr>
+                <tr>
+                    <td>Bits</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>Size</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>Height</td>
+                    <td>BigInt</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Bitcoin.Transaction</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <td>ID (Primary Key)</td>
+                    <td>BigInt</td>
+                </tr>
+                <tr>
+                    <td>BlockID</td>
+                    <td>BigInt</td>
+                </tr>
+                <tr>
+                    <td>Version</td>
+                    <td>BigInt</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Bitcoin.Inputs</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <td>ID (Primary Key)</td>
+                    <td>BigInt</td>
+                </tr>
+                <tr>
+                    <td>TransactionID</td>
+                    <td>BigInt</td>
+                </tr>
+                <tr>
+                    <td>TransactionHash</td>
+                    <td>Binary(32)</td>
+                </tr>
+                <tr>
+                    <td>TransactionIndex</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>Script</td>
+                    <td>Binary</td>
+                </tr>
+                <tr>
+                    <td>SequenceNumber</td>
+                    <td>Int</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Bitcoin.Outputs</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <td>ID (Primary Key)</td>
+                    <td>BigInt</td>
+                </tr>
+                <tr>
+                    <td>Transaction</td>
+                    <td>BigInt</td>
+                </tr>
+                <tr>
+                    <td>Value</td>
+                    <td>BigInt</td>
+                </tr>
+                <tr>
+                    <td>Script</td>
+                    <td>Binary</td>
+                </tr>
+                <tr>
+                    <td>ScriptOpCodes</td>
+                    <td>Text</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,25 @@
+﻿@model Web.ViewModels.QueryResult
+
+@{
+    ViewBag.Title = "Query Results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Results in @Model.Elapsed</h2>
+
+<table class="table">
+    <tr>
+    @foreach (var item in Model.Columns)
+    {
+        <th>@Html.Raw(item)</th>
+    }
+    </tr>
+    @foreach (var item in Model.Rows) 
+    {
+        @*<tr>
+            <td>*@
+                @Html.Raw(item)
+            @*</td>
+        </tr>*@
+    }
+</table>
