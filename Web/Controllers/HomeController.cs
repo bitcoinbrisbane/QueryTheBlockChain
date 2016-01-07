@@ -21,6 +21,9 @@ namespace Web.Controllers
                 Query = "SELECT Top 100 * FROM dbo.Block ORDER BY TimeStampUTC DESC"
             };
 
+            model.Queries.Add(new Models.Query() { Name = "GetLatestBlock", Description = "Get the latest block", SQL="SELECT Top 1 * FROM dbo.Block ORDER BY TimeStampUTC DESC" });
+            model.Queries.Add(new Models.Query() { Name = "GetLatestBlockTime", Description = "Get the latest block time", SQL = "SELECT Top 1 TimeStampUTC FROM dbo.Block ORDER BY TimeStampUTC DESC" });
+
             return View(model);
         }
 

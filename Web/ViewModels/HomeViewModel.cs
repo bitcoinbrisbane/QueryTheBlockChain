@@ -11,7 +11,7 @@ namespace Web.ViewModels
         [Required]
         public String Query { get; set; }
 
-        public IEnumerable<Models.Query> Queries { get; set; }
+        public IList<Models.Query> Queries { get; set; }
 
         public HomeViewModel()
         {
