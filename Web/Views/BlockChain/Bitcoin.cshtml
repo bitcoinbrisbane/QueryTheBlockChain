@@ -14,13 +14,9 @@
         <th>@Html.Raw(item)</th>
     }
     </tr>
-@foreach (var item in Model.Rows) 
-{
-    @*<tr>
-        <td>*@
-            @Html.Raw(item)
-        @*</td>
-    </tr>*@
-}
 
+    @foreach (var item in Model.Rows) 
+    {
+        @Html.Raw(item)
+    }
 </table>

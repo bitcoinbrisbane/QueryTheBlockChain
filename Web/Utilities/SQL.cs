@@ -19,8 +19,6 @@ namespace Web.Utilities
         /// <returns></returns>
         internal static ViewModels.QueryResult Execute(String query)
         {
-            //using (sha256Managed sha)
-
             if (!String.IsNullOrEmpty(query))
             {
                 Regex validQuery = new Regex("select");
