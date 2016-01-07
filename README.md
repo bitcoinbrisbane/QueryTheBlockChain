@@ -1,4 +1,4 @@
-# QueryTheBlockChain
+# Query The Block Chain
 Website and WebAPI for the Database Engine
 
 ##About
