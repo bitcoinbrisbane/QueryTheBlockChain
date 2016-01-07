@@ -34,7 +34,6 @@ namespace Web.Utilities
 
                     using (SqlConnection sqlConnection1 = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["blockchainEntities"].ConnectionString)) //"Server=localhost;Database=BlockChain;User Id=QueryTheBlockchain;Password=Dugong1979!;")) //
                     {
-                        //sqlConnection1.ConnectionTimeout;
                         sqlConnection1.Open();
 
                         using (SqlCommand cmd = new SqlCommand())
@@ -43,8 +42,14 @@ namespace Web.Utilities
                             cmd.CommandType = CommandType.Text;
                             cmd.Connection = sqlConnection1;
 
+                            System.Diagnostics.Stopwatch sw = System.Diagnostics.Stopwatch.StartNew();
+
                             using (SqlDataReader reader = cmd.ExecuteReader())
                             {
+                                //Sql time
+                                sw.Stop();
+                                results.ExecutionTime = sw.Elapsed;
+
                                 int count = reader.FieldCount;
 
                                 for (Int16 i = 0; i < count; i++)

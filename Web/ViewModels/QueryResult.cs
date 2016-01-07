@@ -6,6 +6,10 @@ namespace Web.ViewModels
     public class QueryResult
     {
         public DateTime RequestTime { get; private set; }
+
+        /// <summary>
+        /// Total time taken including data reader
+        /// </summary>
         public TimeSpan Elapsed 
         {
             get 
@@ -13,6 +17,11 @@ namespace Web.ViewModels
                 return DateTime.UtcNow - this.RequestTime;
             }
         }
+
+        /// <summary>
+        /// SQL query time
+        /// </summary>
+        public TimeSpan ExecutionTime { get; set; }
         
         public IList<String> Rows { get; set; }
 
