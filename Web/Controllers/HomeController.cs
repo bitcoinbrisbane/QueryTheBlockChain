@@ -18,7 +18,7 @@ namespace Web.Controllers
             ViewBag.Title = "Query the Block Chain";
             ViewModels.HomeViewModel model = new ViewModels.HomeViewModel()
             {
-                Query = "SELECT Top 100 * FROM dbo.Blocks ORDER BY TimeStamp DESC"
+                Query = "SELECT Top 100 * FROM dbo.Block ORDER BY TimeStampUTC DESC"
             };
 
             return View(model);
